@@ -1,0 +1,221 @@
+:root {
+  --bg: #0b1220;
+  --card: #111a2e;
+  --text: #e8eefc;
+  --muted: #b9c7ef;
+  --accent: #7aa2ff;
+  --border: rgba(255,255,255,0.10);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(11, 18, 32, 0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+/* Task 1: styled name top-left */
+.brand-name {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+/* Task 2: hover underline + styling change */
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: 0.15s ease;
+  font-weight: 600;
+}
+.nav-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  background: rgba(122, 162, 255, 0.10);
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 16px 80px;
+}
+
+.section { margin: 36px 0; }
+.section h2 {
+  margin: 0 0 16px;
+  font-size: 26px;
+}
+
+.about-card {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 18px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.about-name {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+.about-text p { margin: 0; color: var(--muted); line-height: 1.5; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.skill-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.skill-logo {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(122, 162, 255, 0.12);
+  border: 1px solid var(--border);
+  font-size: 20px;
+}
+.skill-card h4 { margin: 0 0 4px; }
+.skill-card p { margin: 0; color: var(--muted); }
+
+.projects { display: grid; gap: 14px; }
+.project-card {
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.project-card h3 { margin: 0 0 8px; }
+.project-card p { margin: 0 0 10px; color: var(--muted); }
+.project-card ul { margin: 0; padding-left: 18px; color: var(--muted); }
+
+.recommendations { display: grid; gap: 10px; margin-bottom: 18px; }
+.recommendation {
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.recommendation-form {
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+label { display: block; margin-bottom: 12px; color: var(--muted); font-weight: 600; }
+input, textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.25);
+  color: var(--text);
+}
+button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(122, 162, 255, 0.22);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover { background: rgba(122, 162, 255, 0.30); }
+
+.error { margin: 10px 0 0; color: #ffb3b3; min-height: 18px; }
+
+/* Task 8: Home icon appears as specified (simple floating icon) */
+.home-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(122, 162, 255, 0.25);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 20px;
+}
+.home-fab:hover { background: rgba(122, 162, 255, 0.35); }
+
+/* Task 9: modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.modal-overlay.show { display: flex; }
+
+.modal {
+  max-width: 420px;
+  width: 100%;
+  background: #0f1830;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+}
+.modal h3 { margin: 0 0 8px; }
+.modal p { margin: 0 0 14px; color: var(--muted); }
+
+/* responsive */
+@media (max-width: 720px) {
+  .grid { grid-template-columns: 1fr; }
+  .about-card { flex-direction: column; align-items: flex-start; }
+  .nav { gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+}
