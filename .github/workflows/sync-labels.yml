@@ -1,0 +1,52 @@
+name: Sync labels
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - .github/workflows/sync-labels.yml
+      - .github/ISSUE_TEMPLATE/recommendation.yml
+  workflow_dispatch:
+
+jobs:
+  ensure-labels:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Ensure labels exist
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = [
+              { name: "recommendation", color: "BFDADC", description: "Visitor-submitted recommendation" },
+              { name: "approved", color: "0E8A16", description: "Approved for public display" },
+            ];
+
+            for (const label of labels) {
+              try {
+                await github.rest.issues.updateLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label.name,
+                  new_name: label.name,
+                  color: label.color,
+                  description: label.description,
+                });
+                core.notice(`Updated label ${label.name}`);
+              } catch (error) {
+                if (error.status === 404) {
+                  await github.rest.issues.createLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    name: label.name,
+                    color: label.color,
+                    description: label.description,
+                  });
+                  core.notice(`Created label ${label.name}`);
+                } else {
+                  core.error(`Could not ensure label ${label.name}: ${error.message}`);
+                  throw error;
+                }
+              }
+            }

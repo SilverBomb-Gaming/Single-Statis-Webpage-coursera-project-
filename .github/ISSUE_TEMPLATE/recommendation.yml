@@ -1,0 +1,21 @@
+name: Recommendation
+description: Share a recommendation for Alfredo Cardona.
+title: "Recommendation from [Your Name]"
+labels:
+  - recommendation
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: e.g., Teammate, Client, Hiring Manager
+    validations:
+      required: true
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommendation
+      description: Provide your feedback or testimonial.
+      placeholder: Include specific projects, qualities, or results.
+    validations:
+      required: true

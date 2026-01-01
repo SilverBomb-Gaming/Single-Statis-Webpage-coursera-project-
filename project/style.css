@@ -132,45 +132,59 @@ body {
 .project-card p { margin: 0 0 10px; color: var(--muted); }
 .project-card ul { margin: 0; padding-left: 18px; color: var(--muted); }
 
+.recommendation-cta {
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+.recommendation-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(122, 162, 255, 0.22);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+.recommendation-btn:hover {
+  background: rgba(122, 162, 255, 0.30);
+}
+.recommendation-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.recommendation-status {
+  margin: 0 0 18px;
+  color: var(--muted);
+  min-height: 20px;
+}
+.recommendation-status.error { color: #ffb3b3; }
+
 .recommendations { display: grid; gap: 10px; margin-bottom: 18px; }
 .recommendation {
   padding: 14px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
+}
+.recommendation-text {
+  margin: 0 0 8px;
   color: var(--muted);
   font-style: italic;
 }
-
-.recommendation-form {
-  padding: 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-}
-
-label { display: block; margin-bottom: 12px; color: var(--muted); font-weight: 600; }
-input, textarea {
-  width: 100%;
-  margin-top: 6px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(0,0,0,0.25);
+.recommendation-meta {
+  margin: 0;
   color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
 }
-button {
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(122, 162, 255, 0.22);
-  color: var(--text);
-  font-weight: 700;
-  cursor: pointer;
-}
-button:hover { background: rgba(122, 162, 255, 0.30); }
-
-.error { margin: 10px 0 0; color: #ffb3b3; min-height: 18px; }
 
 /* Task 8: Home icon appears as specified (simple floating icon) */
 .home-fab {
@@ -189,29 +203,6 @@ button:hover { background: rgba(122, 162, 255, 0.30); }
   font-size: 20px;
 }
 .home-fab:hover { background: rgba(122, 162, 255, 0.35); }
-
-/* Task 9: modal */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-}
-.modal-overlay.show { display: flex; }
-
-.modal {
-  max-width: 420px;
-  width: 100%;
-  background: #0f1830;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 18px;
-}
-.modal h3 { margin: 0 0 8px; }
-.modal p { margin: 0 0 14px; color: var(--muted); }
 
 /* responsive */
 @media (max-width: 720px) {

@@ -137,46 +137,31 @@
     <section id="recommendations" class="section">
       <h2>Recommendations</h2>
 
-      <div id="recommendationList" class="recommendations">
-        <div class="recommendation">
-          “Strong attention to detail and a consistent ability to deliver clean, readable UI.”
-        </div>
-        <div class="recommendation">
-          “Excellent communicator — breaks down complex tasks into clear, actionable steps.”
-        </div>
-        <div class="recommendation">
-          “Reliable and thoughtful developer who improves projects with smart structure and testing.”
-        </div>
+      <div class="recommendation-cta">
+        <a
+          class="recommendation-btn"
+          href="https://github.com/SilverBomb-Gaming/Single-Statis-Webpage-coursera-project-/issues/new?labels=recommendation&title=Recommendation%20from%20%5BYour%20Name%5D&body=Name%3A%20%0A%0ARecommendation%3A%20"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Leave a Recommendation (GitHub)
+        </a>
+        <p class="recommendation-note">Requires a GitHub account. Recommendations appear after approval.</p>
       </div>
 
-      <div class="recommendation-form">
-        <h3>Add a Recommendation</h3>
+      <p id="recommendationStatus" class="recommendation-status" role="status" aria-live="polite">
+        Loading recommendations...
+      </p>
 
-        <label>
-          Name
-          <input id="recName" type="text" placeholder="Alfredo Cardona" />
-        </label>
-
-        <label>
-          Recommendation
-          <textarea id="recText" rows="4" placeholder="Write your recommendation..."></textarea>
-        </label>
-
-        <button id="submitRec" type="button">Submit</button>
-        <p id="formError" class="error" role="alert" aria-live="polite"></p>
-      </div>
+      <div
+        id="recommendationList"
+        class="recommendations"
+        aria-live="polite"
+        aria-busy="true"
+      ></div>
     </section>
 
   </main>
-
-  <!-- Modal (Task 9) -->
-  <div id="modalOverlay" class="modal-overlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <h3 id="modalTitle">Recommendation Submitted</h3>
-      <p>Thanks! Your recommendation has been added.</p>
-      <button id="closeModal" type="button">OK</button>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
